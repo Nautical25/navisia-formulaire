@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulaire NAVISIA Inspecteur</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef6f9;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #0077b6;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #0077b6;
+      color: white;
+      font-weight: bold;
+      margin-top: 2rem;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #005f87;
+    }
+    .radio-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+    }
+    .radio-group label {
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🧭 NAVISIA Inspecteur – Formulaire de Mission</h2>
+
+    <form action="https://tonserveur-n8n.com/webhook/navisia-inspecteur" method="POST">
+      <label for="navire">🛳️ Nom du Navire</label>
+      <input type="text" id="navire" name="navire" required />
+
+      <label for="type_mission">📋 Type de Mission</label>
+      <select id="type_mission" name="type_mission" required>
+        <option value="Superintendance">Superintendance</option>
+        <option value="Expertise Corps & Facultés">Expertise Corps & Facultés</option>
+      </select>
+
+      <label for="notes">📝 Observations Techniques</label>
+      <textarea id="notes" name="notes" rows="5" placeholder="Décrivez ici les anomalies, constats, points critiques…" required></textarea>
+
+      <label for="gps">📍 Coordonnées GPS</label>
+      <input type="text" id="gps" name="gps" placeholder="Ex: 5.3413, -4.0282" required />
+
+      <label for="niveau_urgence">🚨 Niveau d'Urgence</label>
+      <select id="niveau_urgence" name="niveau_urgence" required>
+        <option value="Faible">Faible</option>
+        <option value="Moyenne">Moyenne</option>
+        <option value="Élevée">Élevée</option>
+      </select>
+
+      <label>🔔 Activer les alertes client ?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="alertes_client" value="true" checked /> Oui</label>
+        <label><input type="radio" name="alertes_client" value="false" /> Non</label>
+      </div>
+
+      <button type="submit">📤 Envoyer la Mission</button>
+    </form>
+  </div>
+</body>
+</html>
